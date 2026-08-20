@@ -1,8 +1,5 @@
 {
   "framework": null,
-  "functions": {
-    "api/analyze_morph.py": {}
-  },
   "rewrites": [
     { "source": "/api/analyze_morph", "destination": "/api/analyze_morph.py" }
   ]
