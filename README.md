@@ -17,6 +17,12 @@
 2. **내 게코 등록·목록** — 게코 등록/수정 폼과 등록된 게코들을 카드 형태로 보여주는 목록
 3. **모프 AI 분석** — 사진을 업로드(또는 등록된 게코 사진 중 선택)하면 Gemini AI가 모프 후보와 근거를 분석해서 보여주는 화면
 
+## 스크린샷
+
+| 홈 | 내 게코 등록·목록 | 모프 AI 분석 |
+| --- | --- | --- |
+| ![홈 화면](docs/screenshots/home.png) | ![게코 목록 화면](docs/screenshots/gecko-list.png) | ![모프 AI 분석 화면](docs/screenshots/morph-analysis.png) |
+
 ## 기술 스택
 
 | 영역 | 기술 |
