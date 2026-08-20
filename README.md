@@ -30,6 +30,12 @@
 | --- | --- | --- |
 | ![홈 화면](docs/screenshots/home.png) | ![게코 목록 화면](docs/screenshots/gecko-list.png) | ![모프 AI 분석 화면](docs/screenshots/morph-analysis.png) |
 
+## 🧑‍💻 AI 코딩 도구 사용 과정
+
+VS Code에서 [Claude Code](https://claude.com/claude-code)와 대화하며 코드를 작성하고 배포 문제를 해결하는 과정을 실제로 캡처한 화면입니다.
+
+![AI 코딩 도구와 함께 VS Code 프로젝트 초기 설정을 진행하는 화면](docs/screenshots/ai-log-1.png)
+
 ## 🤖 AI 기능 — 모프 AI 분석
 
 게코 사진 한 장으로 가능성이 높은 모프 후보를 참고 삼아 확인할 수 있는 기능입니다.
