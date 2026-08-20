@@ -86,3 +86,5 @@ vercel dev
 2. **실제 AI 분석 백엔드 연동** — 이후 `api/analyze_morph.py`를 Vercel Serverless Function(Python)으로 작성해 Google Gemini API와 연결하고, 프론트엔드의 색상 비교 로직을 실제 `fetch('/api/analyze_morph')` 호출로 교체했습니다. 사진 미입력/외부 API 오류에 대한 사용자 친화적 에러 메시지도 함께 반영했습니다.
 
 앞으로도 기능 추가나 리팩터링은 Claude Code와의 대화를 통해 반복적으로 진행할 예정입니다.
+
+
