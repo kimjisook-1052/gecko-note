@@ -110,5 +110,3 @@ vercel dev
 | `pyproject.toml` 설정 문제 | 처음에는 설정 파일 자체가 없어 Vercel이 Python 함수를 인식하지 못함 → `[project]`/의존성을 추가하며 `[tool.vercel] entrypoint`도 함께 넣었으나, 이 설정이 오히려 **모든 경로를 하나의 Python 함수로 캐치올 라우팅**시키는 부작용을 일으켜 루트(`/`)에서도 API 에러 메시지가 뜨는 문제로 재발 → 해당 설정을 제거하고, Vercel의 표준 규칙(`api/*.py` 파일 자동 인식)만으로 동작하도록 정리해 해결 |
 | GitHub 저장소 비공개(Private)로 인한 배포 차단 | Vercel 무료 플랜에서 비공개 저장소 배포가 제한됨 → 저장소를 공개(Public)로 전환한 뒤 재배포해 해결 |
 | `vercel.json` 라우팅 설정 문제 | 정적 파일(`index.html`, `css`, `js`)과 `/api/analyze_morph` 함수 라우팅이 충돌해 정적 파일이 정상 서빙되지 않음 → `vercel.json`에 `framework: null`과 `/api/analyze_morph` 전용 rewrite를 명시해 정적 파일과 API 함수 라우팅을 분리 (이 과정에서 빈 `functions` 설정으로 인한 배포 오류도 함께 수정) |
-
-앞으로도 기능 추가나 리팩터링은 Claude Code와의 대화를 통해 반복적으로 진행할 예정입니다.
