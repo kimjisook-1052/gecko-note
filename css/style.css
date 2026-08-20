@@ -204,12 +204,24 @@ main {
 }
 
 .feature-card {
+  display: block;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
   text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg, var(--shadow));
 }
 
 .feature-icon {
