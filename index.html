@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>게코노트 | 크레스티드 게코 관리</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="logo" data-nav="home">
+      <span class="logo-icon">🦎</span>
+      <span class="logo-text">게코노트</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <button class="nav-link active" data-nav="home">홈</button>
+      <button class="nav-link" data-nav="gecko">내 게코 등록·목록</button>
+      <button class="nav-link" data-nav="analysis">모프 AI 분석</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 홈 -->
+  <section id="page-home" class="page active">
+    <div class="hero">
+      <h1>나만의 크레스티드 게코를<br>기록하고 관리하세요</h1>
+      <p class="hero-sub">이름, 모프, 무게, 사진까지 — 게코노트 하나로 우리 집 게코를 한눈에.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-nav="gecko">내 게코 등록하기</button>
+        <button class="btn btn-outline" data-nav="analysis">모프 AI 분석해보기</button>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>게코 프로필 관리</h3>
+        <p>이름, 모프, 부화일, 무게, 메모까지 카드 형태로 정리해서 보여줘요.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <h3>사진 기록</h3>
+        <p>사진을 함께 등록해서 성장 과정과 모프 변화를 눈으로 확인할 수 있어요.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>모프 AI 분석</h3>
+        <p>사진 색상을 분석해서 가능성 있는 모프를 추천해주는 간단 분석 도구예요.</p>
+      </div>
+    </div>
+
+    <div class="stat-bar">
+      <div class="stat-item">
+        <span class="stat-num" id="statCount">0</span>
+        <span class="stat-label">등록된 게코</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" id="statMorphs">0</span>
+        <span class="stat-label">등록된 모프 종류</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 내 게코 등록/목록 -->
+  <section id="page-gecko" class="page">
+    <h1 class="page-title">내 게코 등록·목록</h1>
+
+    <form id="geckoForm" class="gecko-form">
+      <h2 class="form-title" id="formTitle">새 게코 등록</h2>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="fName">이름 <span class="req">*</span></label>
+          <input type="text" id="fName" placeholder="예: 모찌" required>
+        </div>
+
+        <div class="form-field">
+          <label for="fMorph">모프</label>
+          <input type="text" id="fMorph" placeholder="예: 릴리 화이트, 할리퀸, 핀스트라이프 ...">
+        </div>
+
+        <div class="form-field">
+          <label for="fHatch">부화일</label>
+          <input type="date" id="fHatch">
+        </div>
+
+        <div class="form-field">
+          <label for="fWeight">무게 (g)</label>
+          <input type="number" id="fWeight" min="0" step="0.1" placeholder="예: 12.5">
+        </div>
+
+        <div class="form-field form-field-wide">
+          <label for="fMemo">메모</label>
+          <textarea id="fMemo" rows="3" placeholder="특징, 성격, 급여 기록 등 자유롭게 메모하세요."></textarea>
+        </div>
+
+        <div class="form-field form-field-wide">
+          <label for="fPhoto">사진</label>
+          <input type="file" id="fPhoto" accept="image/*">
+          <div class="photo-preview" id="photoPreview"></div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="submitBtn">등록하기</button>
+        <button type="button" class="btn btn-ghost" id="cancelEditBtn" hidden>취소</button>
+      </div>
+    </form>
+
+    <div class="list-header">
+      <h2 class="form-title">등록된 게코 목록</h2>
+      <span class="list-count" id="listCount">0마리</span>
+    </div>
+
+    <div class="gecko-grid" id="geckoGrid">
+      <!-- gecko cards rendered here -->
+    </div>
+
+    <p class="empty-msg" id="emptyMsg">아직 등록된 게코가 없어요. 위 폼에서 첫 게코를 등록해보세요! 🦎</p>
+  </section>
+
+  <!-- 모프 AI 분석 -->
+  <section id="page-analysis" class="page">
+    <h1 class="page-title">모프 AI 분석</h1>
+    <p class="page-desc">
+      게코 사진을 업로드하면 Google Gemini AI가 색상과 패턴을 분석해서 가능성이 높은 모프 후보를 알려드려요.
+      <br><strong>※ AI 분석은 참고용입니다.</strong> 정확한 모프 감별은 전문 브리더에게 확인해주세요.
+    </p>
+
+    <div class="analysis-box">
+      <div class="analysis-upload">
+        <label for="aiPhoto" class="upload-label">
+          <div class="upload-preview" id="aiPreview">
+            <span class="upload-placeholder">📷 사진을 선택하세요</span>
+          </div>
+        </label>
+        <input type="file" id="aiPhoto" accept="image/*" hidden>
+
+        <div class="analysis-controls">
+          <label for="geckoSelect" class="select-label">등록된 게코 사진 불러오기</label>
+          <select id="geckoSelect">
+            <option value="">직접 업로드</option>
+          </select>
+          <button class="btn btn-primary" id="analyzeBtn" disabled>분석하기</button>
+        </div>
+      </div>
+
+      <div class="analysis-result" id="analysisResult" hidden>
+        <h2 class="form-title">분석 결과</h2>
+        <p class="result-summary" id="resultSummary"></p>
+        <div class="result-list" id="resultList"></div>
+      </div>
+
+      <p class="analysis-error" id="analysisError" hidden></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>🦎 게코노트 — 크레스티드 게코 집사를 위한 기록장</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
