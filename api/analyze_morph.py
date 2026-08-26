@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler
 import google.generativeai as genai
 
 MAX_IMAGE_BYTES = 8 * 1024 * 1024  # 8MB safety cap
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-flash-latest"
 
 MISSING_IMAGE_ERROR = "사진을 업로드해주세요"
 SERVER_ERROR = "잠시 후 다시 시도해주세요"
