@@ -30,6 +30,8 @@
 | --- | --- | --- |
 | ![홈 화면](docs/screenshots/home.png) | ![게코 목록 화면](docs/screenshots/gecko-list.png) | ![모프 AI 분석 화면](docs/screenshots/morph-analysis.png) |
 
+   ![모프 AI 분석 결과](docs/screenshots/morph-analysis-result.png)
+
 ## 🧑‍💻 AI 코딩 도구 사용 과정
 
 VS Code에서 [Claude Code](https://claude.com/claude-code)와 대화하며 코드를 작성하고 배포 문제를 해결하는 과정을 실제로 캡처한 화면입니다.
